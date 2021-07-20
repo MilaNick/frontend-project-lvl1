@@ -1,0 +1,10 @@
+name: GitHub Actions
+on:
+  - push
+jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install
+        run: make install
+      - name: eslint
+        run: make lint
