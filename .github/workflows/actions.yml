@@ -2,6 +2,7 @@ name: GitHub Actions
 on:
   - push
 jobs:
+  my-job:
     runs-on: ubuntu-latest
     steps:
       - name: install
