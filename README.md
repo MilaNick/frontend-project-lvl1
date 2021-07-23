@@ -6,5 +6,6 @@
 ### Asciinema
 [project 1, step 5](https://asciinema.org/a/426621)
 [project 1, step 6](https://asciinema.org/a/4kpeec6eEqap7JaSCpr1ers8c)
+[project 1, step 7](https://asciinema.org/a/ZVT0nPEFAxO0OI48F3DZJ7FPp)
 
 

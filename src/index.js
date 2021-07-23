@@ -9,7 +9,10 @@ export const message = {
   win: `Congratulations, ${name}!`,
   descEven: 'Answer "yes" if the number is even, otherwise answer "no".',
   descCalc: 'What is the result of the expression?',
+  descGcd: 'Find the greatest common divisor of given numbers.',
 };
+
+export let result = 0;
 
 export const func = {
   isOdd: (number) => Math.abs(number) % 2 === 1, // checking for parity
@@ -26,6 +29,17 @@ export const func = {
     if (c === '+') return (parseInt(a) + parseInt(b));
     if (c === '-') return (parseInt(a) - parseInt(b));
   }, // converting a string to a mathematical expression
+  getLargestDivisor: (a, b) => {
+    for (let i = 1; i <= a; i += 1) {
+      if (b % (a / i) === 0) {
+        result = a / i;
+        return result;
+      }
+    }
+    return result;
+  }, // for getting the largest divisor
+  // eslint-disable-next-line max-len
+  gcd: (a, b) => (a < b ? func.getLargestDivisor(a, b) : func.getLargestDivisor(b, a)), // choosing the divisor and the divisible
   startGame: (game) => {
     for (let i = 0; i < 3; i += 1) {
       const isCorrect = game();
