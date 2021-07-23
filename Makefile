@@ -10,6 +10,8 @@ brain-calc:
 	node bin/brain-calc.js
 brain-gcd:
 	node bin/brain-gcd.js
+brain-progress:
+	node bin/brain-progression.js
 index:
 	bash index.sh
 publish:

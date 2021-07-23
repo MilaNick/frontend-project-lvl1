@@ -10,6 +10,7 @@ export const message = {
   descEven: 'Answer "yes" if the number is even, otherwise answer "no".',
   descCalc: 'What is the result of the expression?',
   descGcd: 'Find the greatest common divisor of given numbers.',
+  descProgression: 'What number is missing in the progression?',
 };
 
 export let result = 0;
@@ -17,7 +18,8 @@ export let result = 0;
 export const func = {
   isOdd: (number) => Math.abs(number) % 2 === 1, // checking for parity
   isEven: (number) => Math.abs(number) % 2 === 0, // checking for parity
-  random: (a) => Math.floor((Math.random() * a)), // random number
+  random: (a) => Math.floor((Math.random() * a)), // get random number
+  randomNumberInInterval: (max, min) => Math.floor((Math.random() * (max - min + 1)) + min), // get random number in interval
   randomOperator: () => {
     const arr = ['+', '-', '*', '/'];
     const randomIndex = Math.floor(Math.random() * 4);
@@ -40,6 +42,21 @@ export const func = {
   }, // for getting the largest divisor
   // eslint-disable-next-line max-len
   gcd: (a, b) => (a < b ? func.getLargestDivisor(a, b) : func.getLargestDivisor(b, a)), // choosing the divisor and the divisible
+  hideElem: (arr, i) => {
+    const substitute = '..';
+    // eslint-disable-next-line no-param-reassign
+    arr[i] = substitute;
+    return arr.join(' ');
+  }, // hide an element
+  arithmeticProgression: (start, step, count) => {
+    let number = start;
+    const arithmeticProgress = [number];
+    for (let i = 0; i < count; i += 1) {
+      arithmeticProgress.push(number + step);
+      number += step;
+    }
+    return arithmeticProgress;
+  },
   startGame: (game) => {
     for (let i = 0; i < 3; i += 1) {
       const isCorrect = game();
