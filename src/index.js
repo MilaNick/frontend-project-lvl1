@@ -4,16 +4,18 @@ export const message = {
   correct: 'Correct!',
   incorrectYes: "'yes' is wrong answer ;(. Correct answer was 'no'.) ",
   incorrectNo: "'no' is wrong answer ;(. Correct answer was 'yes'.) ",
-  incorrectCalc: ' is wrong answer ;(. Correct answer was ',
+  incorrect1: ' is wrong answer ;(. Correct answer was ',
   incorrect: `Let's try again, ${name}!`,
   win: `Congratulations, ${name}!`,
   descEven: 'Answer "yes" if the number is even, otherwise answer "no".',
   descCalc: 'What is the result of the expression?',
   descGcd: 'Find the greatest common divisor of given numbers.',
   descProgression: 'What number is missing in the progression?',
+  descPrime: 'Answer "yes" if given number is prime. Otherwise answer "no".',
 };
 
-export let result = 0;
+export let isCorrect;
+let result = 0;
 
 export const func = {
   isOdd: (number) => Math.abs(number) % 2 === 1, // checking for parity
@@ -56,6 +58,16 @@ export const func = {
       number += step;
     }
     return arithmeticProgress;
+  },
+  choice: (answer, correctAnswer) => {
+    isCorrect = false;
+    if (answer === correctAnswer) {
+      console.log(message.correct);
+      isCorrect = true;
+    }
+    if (answer !== correctAnswer) {
+      console.log(`'${answer}' ${message.incorrect1} '${correctAnswer}'.`);
+    }
   },
   startGame: (game) => {
     for (let i = 0; i < 3; i += 1) {
