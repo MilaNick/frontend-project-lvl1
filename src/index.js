@@ -19,12 +19,13 @@ export const tools = {
   random: (a) => Math.floor((Math.random() * a)), // get random number
   randomNumberInInterval: (max, min) => Math.floor((Math.random() * (max - min + 1)) + min), // get random number in interval
   randomOperator: () => {
-    const arr = ['+', '-', '*'];
+    const arr = ['+', '-', '*', '/'];
     const randomIndex = Math.floor(Math.random() * 4);
     return arr[randomIndex];
   }, // choice randomOperator
   getExpression: (a, b, c) => {
     if (c === '*') return (a * b);
+    if (c === '/') return (a / b);
     if (c === '+') return (a + b);
     if (c === '-') return (a - b);
   }, // converting a string to a mathematical expression
