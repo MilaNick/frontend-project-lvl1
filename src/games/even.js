@@ -1,25 +1,18 @@
 /* eslint-disable */
 import readlineSync from 'readline-sync';
 
-import { message, tool } from '../index.js';
+import {message, tools, isCorrect } from '../index.js';
 
 console.log(message.descEven);
 export const evenRound = () => {
-  let isCorrect = false;
-  const num = tool.random(100);
+  const num = tools.random(100);
   console.log(`Question: ${num}`);
   const answer = readlineSync.question('Your answer: ');
-  if (tool.isEven(num) && answer === 'yes' || tool.isOdd(num) && answer === 'no') {
-    console.log(message.correct);
-    isCorrect = true;
-  }
-  if (tool.isEven(num) && answer === 'no') {
-    console.log(message.incorrectNo);
-  }
-  if (tool.isOdd(num) && answer === 'yes') {
-    console.log(message.incorrectYes);
-  }
+  let correctAnswer;
+  if (tools.isEven(num)) correctAnswer = 'yes';
+  if (tools.isOdd(num))  correctAnswer = 'no';
+  tools.choice(answer, correctAnswer);
   return isCorrect;
 };
-const { startGame } = tool;
+const { startGame } = tools;
 export default startGame;

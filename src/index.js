@@ -2,10 +2,8 @@ import { name } from '../bin/brain-games.js';
 
 export const message = {
   correct: 'Correct!',
-  incorrectYes: "'yes' is wrong answer ;(. Correct answer was 'no'.) ",
-  incorrectNo: "'no' is wrong answer ;(. Correct answer was 'yes'.) ",
   incorrect1: ' is wrong answer ;(. Correct answer was ',
-  incorrect: `Let's try again, ${name}!`,
+  loser: `Let's try again, ${name}!`,
   win: `Congratulations, ${name}!`,
   descEven: 'Answer "yes" if the number is even, otherwise answer "no".',
   descCalc: 'What is the result of the expression?',
@@ -15,7 +13,7 @@ export const message = {
 };
 export let isCorrect;
 
-export const tool = {
+export const tools = {
   isOdd: (number) => Math.abs(number) % 2 === 1, // checking for parity
   isEven: (number) => Math.abs(number) % 2 === 0, // checking for parity
   random: (a) => Math.floor((Math.random() * a)), // get random number
@@ -40,13 +38,13 @@ export const tool = {
     }
     return result;
   }, // for getting the largest divisor
-  gcd: (a, b) => (a < b ? tool.getLargestDivisor(a, b) : tool.getLargestDivisor(b, a)), // choosing the divisor and the divisible
+  gcd: (a, b) => (a < b ? tools.getLargestDivisor(a, b) : tools.getLargestDivisor(b, a)), // choosing the divisor and the divisible
   hideElem: (arr, i) => {
     const newArray = [...arr];
     newArray[i] = '..';
     return newArray.join(' ');
   }, // hide an element
-  arithmeticProgression: (start, step, count) => {
+  getProgression: (start, step, count) => {
     let number = start;
     const arithmeticProgress = [number];
     for (let i = 0; i < count; i += 1) {
@@ -54,6 +52,15 @@ export const tool = {
       number += step;
     }
     return arithmeticProgress;
+  },
+  isPrime: (num) => {
+    if (num <= 1) return false;
+    for (let i = 2; i < (num / 2); i++) {
+      if (num !== i && num % i === 0) {
+        return false;
+      }
+    }
+    return true;
   },
   choice: (answer, correctAnswer) => {
     isCorrect = false;
@@ -69,7 +76,7 @@ export const tool = {
     for (let i = 2; i >= 0; i -= 1) {
       isCorrect = runRound();
       if (!isCorrect) {
-        console.log(message.incorrect);
+        console.log(message.loser);
         return;
       }
     }

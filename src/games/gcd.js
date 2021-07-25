@@ -1,18 +1,18 @@
 import readlineSync from 'readline-sync';
 
 import {
-  message, tool, isCorrect, start,
+  message, tools, isCorrect, start,
 } from '../index.js';
 
 console.log(message.descGcd);
 export const gcdRound = () => {
-  const num1 = tool.random(100);
-  const num2 = tool.random(100);
+  const num1 = tools.random(100);
+  const num2 = tools.random(100);
   console.log(`Question: ${num1} ${num2}`);
   const answer = +readlineSync.question('Your answer: ');
-  const correctAnswer = tool.gcd(num1, num2);
-  tool.choice(answer, correctAnswer);
+  const correctAnswer = tools.gcd(num1, num2);
+  tools.choice(answer, correctAnswer);
   return isCorrect;
 };
-const { startGame } = tool;
+const { startGame } = tools;
 export default startGame;
