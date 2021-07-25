@@ -1,22 +1,19 @@
 import readlineSync from 'readline-sync';
 
-import { message, func, isCorrect } from '../index.js';
+import { message, tool, isCorrect } from '../index.js';
 
 console.log(message.descProgression);
-
 export const progressionRound = () => {
-  const num1 = func.random(10);
-  const num2 = func.random(10);
-  const count = func.randomNumberInInterval(10, 5);
-  const randomPosition = func.random(count);
-  const array = func.arithmeticProgression(num1, num2, count);
+  const num1 = tool.random(10);
+  const num2 = tool.random(10);
+  const count = tool.randomNumberInInterval(10, 5);
+  const randomPosition = tool.random(count);
+  const array = tool.arithmeticProgression(num1, num2, count);
   const correctAnswer = array[randomPosition];
-  console.log(`Question: ${func.hideElem(array, randomPosition)}`);
+  console.log(`Question: ${tool.hideElem(array, randomPosition)}`);
   const answer = +readlineSync.question('Your answer: ');
-  func.choice(answer, correctAnswer);
+  tool.choice(answer, correctAnswer);
   return isCorrect;
 };
-
-const { startGame } = func;
-
+const { startGame } = tool;
 export default startGame;
