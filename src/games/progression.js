@@ -1,8 +1,9 @@
 import readlineSync from 'readline-sync';
 
-import { message, tools, isCorrect } from '../index.js';
+import { message, tools, isCorrect } from '../utils.js';
+import { engine } from '../engine';
 
-console.log(message.descProgression);
+engine.outputTerminal(message.descProgression);
 export const progressionRound = () => {
   const num1 = tools.random(10);
   const num2 = tools.random(10);
@@ -10,7 +11,7 @@ export const progressionRound = () => {
   const randomPosition = tools.random(count);
   const array = tools.getProgression(num1, num2, count);
   const correctAnswer = array[randomPosition];
-  console.log(`Question: ${tools.hideElem(array, randomPosition)}`);
+  engine.outputTerminal(`Question: ${tools.hideElem(array, randomPosition)}`);
   const answer = +readlineSync.question('Your answer: ');
   tools.choice(answer, correctAnswer);
   return isCorrect;

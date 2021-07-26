@@ -1,17 +1,30 @@
 import readlineSync from 'readline-sync';
 
-import { message, tools, isCorrect } from '../index.js';
+import { message, tools } from '../utils.js';
 
-console.log(message.descCalc);
+import { engine, isCorrect } from '../engine.js';
+
+engine.outputTerminal(message.descCalc);
+const getRandomOperator = () => {
+  const arr = ['+', '-', '*', '/'];
+  const randomIndex = Math.floor(Math.random() * 4);
+  return arr[randomIndex];
+};
+const getExpression = (a, b, c) => {
+  if (c === '*') return (a * b);
+  if (c === '/') return (a / b);
+  if (c === '+') return (a + b);
+  if (c === '-') return (a - b);
+}; // converting a string to a mathematical expression
 export const calcRound = () => {
   const num1 = tools.random(10);
   const num2 = tools.random(10);
-  const operator = tools.randomOperator();
-  console.log(`Question: ${num1} ${operator} ${num2}`);
+  const operator = getRandomOperator();
+  engine.outputTerminal(`Question: ${num1} ${operator} ${num2}`);
   const answer = +readlineSync.question('Your answer: ');
-  const correctAnswer = tools.getExpression(num1, num2, operator);
-  tools.choice(answer, correctAnswer);
+  const correctAnswer = getExpression(num1, num2, operator);
+  engine.choice(answer, correctAnswer);
   return isCorrect;
 };
-const { startGame } = tools;
+const { startGame } = engine;
 export default startGame;

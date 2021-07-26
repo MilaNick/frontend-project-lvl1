@@ -1,11 +1,12 @@
 import readlineSync from 'readline-sync';
 
-import { message, tools, isCorrect } from '../index.js';
+import { message, tools, isCorrect } from '../utils.js';
+import { engine } from '../engine';
 
-console.log(message.descPrime);
+engine.outputTerminal(message.descPrime);
 export const primeRound = () => {
   const num = tools.random(100);
-  console.log(`Question: ${num}`);
+  engine.outputTerminal(`Question: ${num}`);
   const answer = readlineSync.question('Your answer: ');
   let correctAnswer = 'no';
   if (tools.isPrime(num)) {

@@ -1,18 +1,21 @@
-/* eslint-disable */
 import readlineSync from 'readline-sync';
 
-import {message, tools, isCorrect } from '../index.js';
+import { message, tools } from '../utils.js';
 
-console.log(message.descEven);
+import { engine, isCorrect } from '../engine.js';
+
+engine.outputTerminal(message.descEven);
 export const evenRound = () => {
+  const isOdd = (number) => Math.abs(number) % 2 === 1;
+  const isEven = (number) => Math.abs(number) % 2 === 0;
   const num = tools.random(100);
-  console.log(`Question: ${num}`);
+  engine.outputTerminal(`Question: ${num}`);
   const answer = readlineSync.question('Your answer: ');
   let correctAnswer;
-  if (tools.isEven(num)) correctAnswer = 'yes';
-  if (tools.isOdd(num))  correctAnswer = 'no';
-  tools.choice(answer, correctAnswer);
+  if (isEven(num)) correctAnswer = 'yes';
+  if (isOdd(num)) correctAnswer = 'no';
+  engine.choice(answer, correctAnswer);
   return isCorrect;
 };
-const { startGame } = tools;
+const { startGame } = engine;
 export default startGame;
