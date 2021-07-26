@@ -22,7 +22,7 @@ export const calcRound = () => {
   const num2 = tools.random(10);
   const operator = getRandomOperator();
   engine.outputTerminal(`Question: ${num1} ${operator} ${num2}`);
-  const correctAnswer = getExpression(num1, num2, operator);
+  const correctAnswer = getExpression(num1, num2, operator).toString();
   const answer = readlineSync.question('Your answer: ');
   engine.choice(answer, correctAnswer);
   return isCorrect;

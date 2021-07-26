@@ -1,7 +1,6 @@
-import { message, tools } from './utils.js';
+import { message } from './utils.js';
 
 export let isCorrect;
-
 export const engine = {
   outputTerminal: (content) => console.log(content),
   choice: (answer, correctAnswer) => {

@@ -26,7 +26,7 @@ export const progressionRound = () => {
   const count = getRandomNumber(10, 5);
   const randomPosition = tools.random(count);
   const array = getProgression(num, step, count);
-  const correctAnswer = array[randomPosition];
+  const correctAnswer = array[randomPosition].toString();
   engine.outputTerminal(`Question: ${hideElem(array, randomPosition)}`);
   const answer = +readlineSync.question('Your answer: ');
   engine.choice(answer, correctAnswer);

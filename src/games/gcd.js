@@ -11,7 +11,7 @@ export const gcdRound = () => {
   const num2 = tools.random(100);
   engine.outputTerminal(`Question: ${num1} ${num2}`);
   const answer = +readlineSync.question('Your answer: ');
-  const correctAnswer = getLargestDivisor(num1, num2);
+  const correctAnswer = getLargestDivisor(num1, num2).toString();
   engine.choice(answer, correctAnswer);
   return isCorrect;
 };
