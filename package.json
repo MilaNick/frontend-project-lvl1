@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
-  "description": "[![Actions Status](https://github.com/MilaNick/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/MilaNick/frontend-project-lvl1/actions)",
+  "description": "Brain Games is bundle of mini-games with command-line interface",
   "main": "index.sh",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
