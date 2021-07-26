@@ -10,6 +10,7 @@ const getRandomOperator = () => {
   const randomIndex = Math.floor(Math.random() * 4);
   return arr[randomIndex];
 };
+// eslint-disable-next-line consistent-return
 const getExpression = (a, b, c) => {
   if (c === '*') return (a * b);
   if (c === '/') return (a / b);
@@ -21,8 +22,8 @@ export const calcRound = () => {
   const num2 = tools.random(10);
   const operator = getRandomOperator();
   engine.outputTerminal(`Question: ${num1} ${operator} ${num2}`);
-  const answer = +readlineSync.question('Your answer: ');
   const correctAnswer = getExpression(num1, num2, operator);
+  const answer = +readlineSync.question('Your answer: ');
   engine.choice(answer, correctAnswer);
   return isCorrect;
 };
