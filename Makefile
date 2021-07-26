@@ -1,7 +1,5 @@
 install:
 	npm ci
-	npm install readline-sync
-	npm install --save-dev eslint
 brain-games:
 	node bin/brain-games.js
 brain-even:
