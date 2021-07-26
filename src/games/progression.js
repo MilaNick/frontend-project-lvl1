@@ -1,20 +1,36 @@
 import readlineSync from 'readline-sync';
 
-import { message, tools, isCorrect } from '../utils.js';
-import { engine } from '../engine';
+import { message, tools } from '../utils.js';
+
+import { engine, isCorrect } from '../engine.js';
 
 engine.outputTerminal(message.descProgression);
+const hideElem = (arr, i) => {
+  const newArray = [...arr];
+  newArray[i] = '..';
+  return newArray.join(' ');
+};
+const getProgression = (start, step, count) => {
+  let number = start;
+  const arithmeticProgress = [number];
+  for (let i = 0; i < count; i += 1) {
+    arithmeticProgress.push(number + step);
+    number += step;
+  }
+  return arithmeticProgress;
+};
+const getRandomNumber = (max, min) => Math.floor((Math.random() * (max - min + 1)) + min);
 export const progressionRound = () => {
-  const num1 = tools.random(10);
-  const num2 = tools.random(10);
-  const count = tools.randomNumberInInterval(10, 5);
+  const num = tools.random(10);
+  const step = tools.random(10);
+  const count = getRandomNumber(10, 5);
   const randomPosition = tools.random(count);
-  const array = tools.getProgression(num1, num2, count);
+  const array = getProgression(num, step, count);
   const correctAnswer = array[randomPosition];
-  engine.outputTerminal(`Question: ${tools.hideElem(array, randomPosition)}`);
+  engine.outputTerminal(`Question: ${hideElem(array, randomPosition)}`);
   const answer = +readlineSync.question('Your answer: ');
-  tools.choice(answer, correctAnswer);
+  engine.choice(answer, correctAnswer);
   return isCorrect;
 };
-const { startGame } = tools;
+const { startGame } = engine;
 export default startGame;
