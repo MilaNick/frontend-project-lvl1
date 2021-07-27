@@ -7,7 +7,7 @@ import { engine, isCorrect } from '../engine.js';
 engine.outputTerminal(message.descCalc);
 const getRandomOperator = () => {
   const arr = ['+', '-', '*'];
-  const randomIndex = Math.floor(Math.random() * 4);
+  const randomIndex = Math.floor(Math.random() * 3);
   return arr[randomIndex];
 };
 // eslint-disable-next-line consistent-return
