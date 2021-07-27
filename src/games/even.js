@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 
 import { message, tools } from '../utils.js';
 
-import { engine, isCorrect } from '../engine.js';
+import engine from '../engine.js';
 
 engine.outputTerminal(message.descEven);
 export const evenRound = () => {
@@ -14,8 +14,7 @@ export const evenRound = () => {
   let correctAnswer;
   if (isEven(num)) correctAnswer = 'yes';
   if (isOdd(num)) correctAnswer = 'no';
-  engine.choice(answer, correctAnswer);
-  return isCorrect;
+  return engine.choice(answer, correctAnswer);
 };
 const { startGame } = engine;
 export default startGame;

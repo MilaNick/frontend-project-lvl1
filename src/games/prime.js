@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 
 import { message, tools } from '../utils.js';
 
-import { engine, isCorrect } from '../engine.js';
+import engine from '../engine.js';
 
 engine.outputTerminal(message.descPrime);
 const isPrime = (num) => {
@@ -22,8 +22,7 @@ export const primeRound = () => {
   if (isPrime(num)) {
     correctAnswer = 'yes';
   }
-  engine.choice(answer, correctAnswer);
-  return isCorrect;
+  return engine.choice(answer, correctAnswer);
 };
 const { startGame } = engine;
 export default startGame;

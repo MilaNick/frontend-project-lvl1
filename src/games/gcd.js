@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 
 import { message, tools } from '../utils.js';
 
-import { engine, isCorrect } from '../engine.js';
+import engine from '../engine.js';
 
 engine.outputTerminal(message.descGcd);
 const getLargestDivisor = (a, b) => (b === 0 ? a : getLargestDivisor(b, a % b));
@@ -13,7 +13,7 @@ export const gcdRound = () => {
   const answer = readlineSync.question('Your answer: ');
   const correctAnswer = getLargestDivisor(num1, num2).toString();
   engine.choice(answer, correctAnswer);
-  return isCorrect;
+  return engine.choice(answer, correctAnswer);
 };
 const { startGame } = engine;
 export default startGame;

@@ -1,7 +1,7 @@
 import { message } from './utils.js';
 
-export let isCorrect;
-export const engine = {
+let isCorrect;
+const engine = {
   outputTerminal: (content) => console.log(content),
   choice: (answer, correctAnswer) => {
     isCorrect = false;
@@ -12,6 +12,7 @@ export const engine = {
     if (answer !== correctAnswer) {
       engine.outputTerminal(`'${answer}' ${message.incorrect1} '${correctAnswer}'.`);
     }
+    return isCorrect;
   },
   startGame: (runRound) => {
     for (let i = 2; i >= 0; i -= 1) {
@@ -24,3 +25,4 @@ export const engine = {
     engine.outputTerminal(message.win);
   },
 };
+export default engine;

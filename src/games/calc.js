@@ -2,7 +2,7 @@ import readlineSync from 'readline-sync';
 
 import { message, tools } from '../utils.js';
 
-import { engine, isCorrect } from '../engine.js';
+import engine from '../engine.js';
 
 engine.outputTerminal(message.descCalc);
 const getRandomOperator = () => {
@@ -23,8 +23,7 @@ export const calcRound = () => {
   engine.outputTerminal(`Question: ${num1} ${operator} ${num2}`);
   const correctAnswer = getExpression(num1, num2, operator).toString();
   const answer = readlineSync.question('Your answer: ');
-  engine.choice(answer, correctAnswer);
-  return isCorrect;
+  return engine.choice(answer, correctAnswer);
 };
 const { startGame } = engine;
 export default startGame;
