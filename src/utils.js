@@ -1,5 +1,6 @@
-import { name } from '../bin/brain-games.js';
+import welcome from './games/cli.js';
 
+const name = welcome();
 export const message = {
   correct: 'Correct!',
   incorrect1: ' is wrong answer ;(. Correct answer was ',
