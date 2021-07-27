@@ -7,7 +7,7 @@ import { engine, isCorrect } from '../engine.js';
 engine.outputTerminal(message.descPrime);
 const isPrime = (num) => {
   if (num <= 1) return false;
-  for (let i = 2; i < (num / 2); i++) {
+  for (let i = 2; i < (num / 2); i += 1) {
     if (num !== i && num % i === 0) {
       return false;
     }
