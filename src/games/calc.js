@@ -6,14 +6,14 @@ import { engine, isCorrect } from '../engine.js';
 
 engine.outputTerminal(message.descCalc);
 const getRandomOperator = () => {
-  const arr = ['+', '-', '*'];
+  const arr = ['+', '-', '*', '/'];
   const randomIndex = Math.floor(Math.random() * 4);
   return arr[randomIndex];
 };
 // eslint-disable-next-line consistent-return
 const getExpression = (a, b, c) => {
   if (c === '*') return (a * b);
-  // if (c === '/') return (a / b);
+  if (c === '/') return (a / b);
   if (c === '+') return (a + b);
   if (c === '-') return (a - b);
 }; // converting a string to a mathematical expression
