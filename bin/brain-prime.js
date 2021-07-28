@@ -1,4 +1,5 @@
-#!/usr/bin/env node
-import startGame, { primeRound } from '../src/games/prime.js';
+import engine from '../src/engine.js';
+// eslint-disable-next-line import/named
+import { runRound, desc } from '../src/games/prime.js';
 
-startGame(primeRound);
+engine(desc, runRound);

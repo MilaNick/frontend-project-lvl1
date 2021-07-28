@@ -1,20 +1,10 @@
-import readlineSync from 'readline-sync';
+import getRandomNumber from '../utils.js';
 
-import { message, tools } from '../utils.js';
-
-import engine from '../engine.js';
-
-engine.outputTerminal(message.descEven);
-export const evenRound = () => {
-  const isOdd = (number) => Math.abs(number) % 2 === 1;
-  const isEven = (number) => Math.abs(number) % 2 === 0;
-  const num = tools.random(100);
-  engine.outputTerminal(`Question: ${num}`);
-  const answer = readlineSync.question('Your answer: ');
-  let correctAnswer;
-  if (isEven(num)) correctAnswer = 'yes';
-  if (isOdd(num)) correctAnswer = 'no';
-  return engine.choice(answer, correctAnswer);
+const isEven = (number) => Math.abs(number) % 2 === 0;
+export const desc = 'Answer "yes" if the number is even, otherwise answer "no".';
+export const runRound = () => {
+  const randomNum = getRandomNumber(100, 0);
+  const correctAnswer = isEven(randomNum) ? 'yes' : 'no';
+  const issue = `Question: ${randomNum}`;
+  return { correctAnswer, issue };
 };
-const { startGame } = engine;
-export default startGame;

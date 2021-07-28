@@ -1,29 +1,26 @@
-import readlineSync from 'readline-sync';
+import getRandomNumber from '../utils.js';
 
-import { message, tools } from '../utils.js';
-
-import engine from '../engine.js';
-
-engine.outputTerminal(message.descCalc);
 const getRandomOperator = () => {
-  const arr = ['+', '-', '*'];
-  const randomIndex = Math.floor(Math.random() * arr.length);
-  return arr[randomIndex];
+  const arrOperators = ['+', '-', '*'];
+  const randomIndex = Math.floor(Math.random() * arrOperators.length);
+  return arrOperators[randomIndex];
 };
-// eslint-disable-next-line consistent-return
-const getExpression = (a, b, c) => {
-  if (c === '*') return (a * b);
-  if (c === '+') return (a + b);
-  if (c === '-') return (a - b);
-}; // converting a string to a mathematical expression
-export const calcRound = () => {
-  const num1 = tools.random(10);
-  const num2 = tools.random(10);
+const getExpression = (firstNum, secondNum, operator) => {
+  switch (operator) {
+    case '*':
+      return firstNum * secondNum;
+    case '-':
+      return firstNum - secondNum;
+    default:
+      return firstNum + secondNum;
+  }
+};
+export const desc = 'What is the result of the expression?';
+export const runRound = () => {
+  const randomNum1 = getRandomNumber(10, 0);
+  const randomNum2 = getRandomNumber(10, 0);
   const operator = getRandomOperator();
-  engine.outputTerminal(`Question: ${num1} ${operator} ${num2}`);
-  const correctAnswer = getExpression(num1, num2, operator).toString();
-  const answer = readlineSync.question('Your answer: ');
-  return engine.choice(answer, correctAnswer);
+  const correctAnswer = getExpression(randomNum1, randomNum2, operator).toString();
+  const issue = `Question: ${randomNum1} ${operator} ${randomNum2}`;
+  return { correctAnswer, issue };
 };
-const { startGame } = engine;
-export default startGame;

@@ -1,4 +1,6 @@
 #!/usr/bin/env node
-import startGame, { calcRound } from '../src/games/calc.js';
+import engine from '../src/engine.js';
+// eslint-disable-next-line import/named
+import { runRound, desc } from '../src/games/calc.js';
 
-startGame(calcRound);
+engine(desc, runRound);

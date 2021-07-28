@@ -1,35 +1,27 @@
-import readlineSync from 'readline-sync';
+import getRandomNumber from '../utils.js';
 
-import { message, tools } from '../utils.js';
-
-import engine from '../engine.js';
-
-engine.outputTerminal(message.descProgression);
 const hideElem = (arr, i) => {
   const newArray = [...arr];
   newArray[i] = '..';
   return newArray.join(' ');
 };
 const getProgression = (start, step, count) => {
-  let number = start;
-  const arithmeticProgress = [number];
+  let elem = start;
+  const arithmeticProgress = [elem];
   for (let i = 0; i < count; i += 1) {
-    arithmeticProgress.push(number + step);
-    number += step;
+    arithmeticProgress.push(elem + step);
+    elem += step;
   }
   return arithmeticProgress;
 };
-const getRandomNumber = (max, min) => Math.floor((Math.random() * (max - min + 1)) + min);
-export const progressionRound = () => {
-  const num = tools.random(10);
-  const step = tools.random(10);
+export const desc = 'What number is missing in the progression?';
+export const runRound = () => {
+  const randomNum = getRandomNumber(10, 0);
+  const step = getRandomNumber(10, 0);
   const count = getRandomNumber(10, 5);
-  const randomPosition = tools.random(count);
-  const array = getProgression(num, step, count);
-  const correctAnswer = array[randomPosition].toString();
-  engine.outputTerminal(`Question: ${hideElem(array, randomPosition)}`);
-  const answer = readlineSync.question('Your answer: ');
-  return engine.choice(answer, correctAnswer);
+  const randomPosition = Math.floor(Math.random() * count);
+  const progression = getProgression(randomNum, step, count);
+  const correctAnswer = progression[randomPosition].toString();
+  const issue = `Question: ${hideElem(progression, randomPosition)}`;
+  return { correctAnswer, issue };
 };
-const { startGame } = engine;
-export default startGame;

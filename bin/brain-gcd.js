@@ -1,4 +1,6 @@
 #!/usr/bin/env node
-import startGame, { gcdRound } from '../src/games/gcd.js';
+import engine from '../src/engine.js';
+// eslint-disable-next-line import/named
+import { runRound, desc } from '../src/games/gcd.js';
 
-startGame(gcdRound);
+engine(desc, runRound);

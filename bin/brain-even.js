@@ -1,4 +1,6 @@
 #!/usr/bin/env node
-import startGame, { evenRound } from '../src/games/even.js';
+import engine from '../src/engine.js';
+// eslint-disable-next-line import/named
+import { runRound, desc } from '../src/games/even.js';
 
-startGame(evenRound);
+engine(desc, runRound);

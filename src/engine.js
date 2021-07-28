@@ -1,28 +1,25 @@
-import { message } from './utils.js';
+import readlineSync from 'readline-sync';
 
-let isCorrect;
-const engine = {
-  outputTerminal: (content) => console.log(content),
-  choice: (answer, correctAnswer) => {
-    isCorrect = false;
+import welcome from './games/cli.js';
+
+const engine = (desc, game) => {
+  const name = welcome();
+  console.log(desc);
+  for (let i = 0; i < 3;) {
+    const resultRound = game();
+    const { issue } = resultRound;
+    const { correctAnswer } = resultRound;
+    console.log(issue);
+    const answer = readlineSync.question('Your answer: ');
     if (answer === correctAnswer) {
-      engine.outputTerminal(message.correct);
-      isCorrect = true;
+      console.log('Correct!');
+      i += 1;
+    } else {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
-    if (answer !== correctAnswer) {
-      engine.outputTerminal(`'${answer}' ${message.incorrect1} '${correctAnswer}'.`);
-    }
-    return isCorrect;
-  },
-  startGame: (runRound) => {
-    for (let i = 2; i >= 0; i -= 1) {
-      isCorrect = runRound();
-      if (!isCorrect) {
-        engine.outputTerminal(message.loser);
-        return;
-      }
-    }
-    engine.outputTerminal(message.win);
-  },
+  }
+  console.log(`Congratulations, ${name}!`);
 };
 export default engine;
