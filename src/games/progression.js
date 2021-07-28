@@ -8,9 +8,9 @@ const hideElem = (arr, i) => {
 const getProgression = (start, step, count) => {
   let elem = start;
   const arithmeticProgress = [elem];
-  for (let i = 0; i < count; i += 1) {
+  for (let i = 1; i < count; i += 1) {
     arithmeticProgress.push(elem + step);
-    elem += step;
+    elem = start + step * i;
   }
   return arithmeticProgress;
 };
