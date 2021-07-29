@@ -1,4 +1,6 @@
-import getRandomNumber from '../utils.js';
+import { getRandomNumber } from '../utils.js';
+
+import engine from '../engine.js';
 
 const isPrime = (elem) => {
   if (elem <= 1) return false;
@@ -9,10 +11,13 @@ const isPrime = (elem) => {
   }
   return true;
 };
-export const desc = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-export const runRound = () => {
+const desc = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const roundCounter = 3;
+const runRound = () => {
   const randomNum = getRandomNumber(100, 0);
   const correctAnswer = isPrime(randomNum) ? 'yes' : 'no';
-  const issue = `Question: ${randomNum}`;
-  return { correctAnswer, issue };
+  const question = randomNum;
+  return { correctAnswer, question };
 };
+const startGame = () => engine(desc, runRound, roundCounter);
+export default startGame;
