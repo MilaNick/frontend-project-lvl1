@@ -6,7 +6,7 @@ const description = 'What is the result of the expression?';
 
 const getRandomOperator = () => {
   const operators = ['+', '-', '*'];
-  const randomIndex = getRandomNum(operators);
+  const randomIndex = getRandomNum(operators.length);
   return operators[randomIndex];
 };
 // eslint-disable-next-line consistent-return
