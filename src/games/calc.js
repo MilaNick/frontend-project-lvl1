@@ -1,11 +1,13 @@
-import { getRandomNumber } from '../utils.js';
+import { getRandomNumber, getRandomNum } from '../utils.js';
 
 import engine from '../engine.js';
 
+const description = 'What is the result of the expression?';
+
 const getRandomOperator = () => {
-  const arrOperators = ['+', '-', '*'];
-  const randomIndex = Math.floor(Math.random() * arrOperators.length);
-  return arrOperators[randomIndex];
+  const operators = ['+', '-', '*'];
+  const randomIndex = getRandomNum(operators);
+  return operators[randomIndex];
 };
 // eslint-disable-next-line consistent-return
 const calculate = (firstNum, secondNum, operator) => {
@@ -20,15 +22,13 @@ const calculate = (firstNum, secondNum, operator) => {
       break;
   }
 };
-const desc = 'What is the result of the expression?';
-const roundCounter = 3;
-const runRound = () => {
-  const randomNum1 = getRandomNumber(10, 0);
-  const randomNum2 = getRandomNumber(10, 0);
+const getRoundData = () => {
+  const randomNum1 = getRandomNumber(0, 10);
+  const randomNum2 = getRandomNumber(0, 10);
   const operator = getRandomOperator();
   const correctAnswer = calculate(randomNum1, randomNum2, operator).toString();
   const question = `${randomNum1} ${operator} ${randomNum2}`;
   return { correctAnswer, question };
 };
-const startGame = () => engine(desc, runRound, roundCounter);
+const startGame = () => engine(description, getRoundData);
 export default startGame;

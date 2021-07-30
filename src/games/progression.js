@@ -1,6 +1,8 @@
-import { getRandomNumber } from '../utils.js';
+import { getRandomNum, getRandomNumber } from '../utils.js';
 
 import engine from '../engine.js';
+
+const description = 'What number is missing in the progression?';
 
 const hideElem = (arr, i) => {
   const newArray = [...arr];
@@ -14,17 +16,15 @@ const getProgression = (start, step, count) => {
   }
   return arithmeticProgress;
 };
-const desc = 'What number is missing in the progression?';
-const roundCounter = 3;
-const runRound = () => {
-  const randomNum = getRandomNumber(10, 0);
-  const step = getRandomNumber(10, 0);
-  const count = getRandomNumber(10, 5);
-  const randomPosition = Math.floor(Math.random() * count);
+const getRoundData = () => {
+  const randomNum = getRandomNumber(0, 10);
+  const step = getRandomNumber(0, 10);
+  const count = getRandomNumber(5, 10);
+  const randomPosition = getRandomNum(count);
   const progression = getProgression(randomNum, step, count);
   const correctAnswer = progression[randomPosition].toString();
   const question = hideElem(progression, randomPosition);
   return { correctAnswer, question };
 };
-const startGame = () => engine(desc, runRound, roundCounter);
+const startGame = () => engine(description, getRoundData);
 export default startGame;
