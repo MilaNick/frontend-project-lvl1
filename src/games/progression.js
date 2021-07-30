@@ -1,4 +1,4 @@
-import { getRandomNum, getRandomNumber } from '../utils.js';
+import { getRandomNumber } from '../utils.js';
 
 import engine from '../engine.js';
 
@@ -20,7 +20,7 @@ const getRoundData = () => {
   const randomNum = getRandomNumber(0, 10);
   const step = getRandomNumber(0, 10);
   const count = getRandomNumber(5, 10);
-  const randomPosition = getRandomNum(count);
+  const randomPosition = getRandomNumber(0, count);
   const progression = getProgression(randomNum, step, count);
   const correctAnswer = progression[randomPosition].toString();
   const question = hideElem(progression, randomPosition);
