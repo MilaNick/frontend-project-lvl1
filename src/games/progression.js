@@ -4,11 +4,6 @@ import engine from '../engine.js';
 
 const description = 'What number is missing in the progression?';
 
-const hideElem = (arr, i) => {
-  const newArray = [...arr];
-  newArray[i] = '..';
-  return newArray.join(' ');
-};
 const getProgression = (start, step, count) => {
   const arithmeticProgress = [start];
   for (let i = 1; i < count; i += 1) {
