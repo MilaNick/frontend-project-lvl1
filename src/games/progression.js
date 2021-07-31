@@ -23,8 +23,8 @@ const getRoundData = () => {
   const randomPosition = getRandomNumber(0, count - 1);
   const progression = getProgression(randomNum, step, count);
   const correctAnswer = progression[randomPosition].toString();
-  const question = hideElem(progression, randomPosition);
-  return { correctAnswer, question };
+  progression[randomPosition] = '..';
+  return { correctAnswer, question: progression.join(' ') };
 };
 const startGame = () => engine(description, getRoundData);
 export default startGame;
