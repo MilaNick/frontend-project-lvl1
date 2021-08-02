@@ -5,8 +5,8 @@ import engine from '../engine.js';
 const description = 'What number is missing in the progression?';
 
 const getProgression = (start, step, count) => {
-  const arithmeticProgress = [start];
-  for (let i = 1; i < count; i += 1) {
+  const arithmeticProgress = [];
+  for (let i = 0; i < count; i += 1) {
     arithmeticProgress.push(start + step * i);
   }
   return arithmeticProgress;
