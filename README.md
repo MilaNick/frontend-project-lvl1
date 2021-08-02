@@ -6,7 +6,7 @@
 ### Asciinema
 [project 1, step 5](https://asciinema.org/a/426621)
 ```html
-  <script id="asciicast-426746" src="https://asciinema.org/a/426746.js" async data-autoplay="true" data-size="big"></script>
+  <script id="asciicast-426746" src="https://asciinema.org/a/426746.js" async></script>
 ```
 [project 1, step 6](https://asciinema.org/a/4kpeec6eEqap7JaSCpr1ers8c)  
 ```html
