@@ -3,22 +3,22 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/MilaNick/frontend-project-lvl1/maintainability)
 [![example workflow](https://github.com/MilaNick/frontend-project-lvl1/actions/workflows/actions.yml/badge.svg)](https://github.com/MilaNick/frontend-project-lvl1/actions)  
 
+## The Mind Games project
+The Mind Games project is a set of five console games that allow you to improve brain function. Each game asks questions that need to be answered correctly. After three correct answers, it is considered that the game is over. Incorrect answers end the game and it is suggested to go through it again.  
 
-## Проект "Игры разума"
-«Игры разума» — набор из пяти консольных игр, позволяющих улучшить работу мозга. Каждая игра задает вопросы, на которые нужно дать правильные ответы. После трех правильных ответов считается, что игра пройдена. Неправильные ответы завершают игру и предлагается пройти ее заново.
+## Installation
+1. Install Node globally.js of the latest version into the system.
+2. Clone the created project repository locally.
+3. Install dependencies (make install)
+4. Create new scratch file from selection
+5. Run the games (commands in the description of the games)
+## Games:
+1. The brain-even team. Determining whether the proposed number is even.
+2. The brain-calc command. The solution of the proposed arithmetic problem.
+3. The brain-gcd command. Finding the greatest common divisor of two proposed numbers.
+4. The brain-progression command. Progression. Search for missing numbers in a sequence of numbers.
+5. The brain-prime team. Determining whether the proposed number is prime.  
 
-## Установка
-1. Установите глобально Node.js последней версии в систему.
-2. Склонируйте созданный репозиторий проекта локально.
-3. Выполните установку зависимостей (make install)
-4. Используйте make publish и npm link
-5. Запустите игры (команды в описании игр)
-## Игры:
-1. Команда brain-even. Определение является ли предложенное число четным.
-2. Команда brain-calc. Решение предложенной арифметической задачи.
-3. Команда brain-gcd. Нахождение наибольшего общего делителя двух предложенных чисел.
-4. Команда brain-progression. Прогрессия. Поиск пропущенных чисел в последовательности чисел.
-5. Команда brain-prime. Определение является ли предложенное число простыми.
 ### Asciinema
 [![asciicast](https://asciinema.org/a/426746.svg)](https://asciinema.org/a/426746)
 [![asciicast](https://asciinema.org/a/4kpeec6eEqap7JaSCpr1ers8c.svg)](https://asciinema.org/a/4kpeec6eEqap7JaSCpr1ers8c)
